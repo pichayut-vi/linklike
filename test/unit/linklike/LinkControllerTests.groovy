@@ -27,8 +27,8 @@ class LinkControllerTests {
 
     void testCreateRepeatTitleURL()
     {
-    	params.title = 'facebook'
-    	params.url = 'www.facebook.com'
+    	params.title = 'GOOGLE'
+    	params.url = 'www.google.com'
 
     	controller.create()
 
