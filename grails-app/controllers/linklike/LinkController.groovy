@@ -8,8 +8,37 @@ class LinkController {
     }
 
     def create() {
+        def links = Link.findAll()
+        def temp = 0
         def link = new Link(title: params.title, url: params.url)
-        link.save()
+        for (i in links)
+        {
+            if(i.title == link.title & i.url == link.url)
+            {
+                temp++                
+            }
+        }
+        if(temp == 0)
+        {
+            link.save()
+        } 
         redirect(action: "index")
     }
+
+    def amountlike(String title,String url){
+        def links = Link.findAll()
+        for (i in links)
+        {
+                if(i.title == title & i.url == url){
+                i.countNumber += 1
+
+                
+            }
+        }
+          redirect(action: "index")
+
+    }
+
+   
+
 }
